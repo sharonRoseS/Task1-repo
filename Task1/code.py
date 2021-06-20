@@ -1,4 +1,5 @@
 
+
 # SHARON ROSE S
 
 #Step 1: Importing the required libraries for the execution
@@ -49,22 +50,28 @@ regressor.fit(x_train, y_train) #Traning the linear regression model with the av
 #Step 10: Testing algorithm
 y_predict=regressor.predict(x_test)
 
+#Step 11: Visualising data in graphical format
+plt.scatter(x_train, y_train, color="red", marker="*")
+plt.plot( x_train,regressor.predict(x_train), color = "green")
+plt.title('The Linear Regression Model')
+plt.xlabel('Hours studied')  
+plt.ylabel('Percentage score')  
+plt.show()
 
-#Step 11: Comparing acutal values with predicted values
+#Step 12: Comparing acutal values with predicted values
 df2=pandas.DataFrame({"predicted values": y_predict, "acutal values": y_test, "Difference": y_predict-y_test})
 print(df2)
 print("")
 
-#Step 12: Evaluate the model
+#Step 13: Evaluate the model
 from sklearn import metrics  
 print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_predict))
 print("")
 
-#Step 13: Now Predict required data
+#Step 14: Now Predict required data
 print("Enter the required data to be predicted: ")
 z=float(input())
 StdScore=regressor.predict([[z]])
 print("")
 print("The predicted score if a student studies for 9.25 hrs/day is: ", StdScore)
-
 
